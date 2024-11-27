@@ -14,8 +14,8 @@
 
     <modules>
         <module>dispatch-info</module>
-        <module>dispatch_common</module>
-        <module>dispatch_device</module>
+        <module>dispatch-common</module>
+        <module>dispatch-device</module>
     </modules>
 
     <properties>
