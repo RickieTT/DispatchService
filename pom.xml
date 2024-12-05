@@ -32,6 +32,7 @@
         <mysql.version>8.0.33</mysql.version>
         <druid.version>1.1.17</druid.version>
         <mybatis.spring.boot.version>2.2.0</mybatis.spring.boot.version>
+        <mybatisplus.spring.boot.version>3.5.9</mybatisplus.spring.boot.version>
     </properties>
 
     <dependencyManagement>
@@ -77,10 +78,16 @@
             </dependency>
 
             <!--配置springboot整合mybatis starter-->
+<!--            <dependency>-->
+<!--                <groupId>org.mybatis.spring.boot</groupId>-->
+<!--                <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--                <version>${mybatis.spring.boot.version}</version>-->
+<!--            </dependency>-->
+
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.spring.boot.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.spring.boot.version}</version>
             </dependency>
 
             <!--配置log4j ,使用的最新高版本-->

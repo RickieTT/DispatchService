@@ -1,5 +1,6 @@
 package com.exercise.dispatch.controller;
 
+import com.exercise.dispatch.dto.HeartbeatDTO;
 import com.exercise.dispatch.model.ResponseEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,9 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 public class TaskController {
 
     @PostMapping("/listener")
-    public ResponseEntity<String> test(@RequestBody String name) {
-        System.out.println(name);
-        log.info("get name:{}", name);
+    public ResponseEntity<String> test(@RequestBody HeartbeatDTO heartbeatDTO) {
+
+        log.info(heartbeatDTO.toString());
         return ResponseEntity.ok("get");
     }
 

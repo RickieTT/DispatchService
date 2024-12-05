@@ -1,5 +1,7 @@
 package com.exercise.dispatch.controller;
 
+import com.exercise.dispatch.model.ResponseEntity;
+import com.exercise.dispatch.model.ResponseEnum;
 import com.exercise.dispatch.service.device.DeviceTask;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,13 +20,15 @@ public class DeviceController {
     @Resource
     public DeviceTask deviceTask;
 
+
+
     @GetMapping("/heartbeat")
-    public CompletableFuture<Void> triggerAsyncTasks() {
-        // 调用10次异步方法，尝试让10个核心线程同时运行
-        CompletableFuture[] futures = new CompletableFuture[10];
-        for (int i = 0; i < 10; i++) {
-            futures[i] = CompletableFuture.runAsync(() -> deviceTask.runExecutor());
+    public ResponseEntity<String> triggerAsyncTasks() {
+        try {
+            deviceTask.sendHeartbeat();
+        } catch (Exception e) {
+            return ResponseEntity.fail(ResponseEnum.FAIL, e.getMessage());
         }
-        return CompletableFuture.allOf(futures);
+        return ResponseEntity.ok("发送心跳成功");
     }
 }
